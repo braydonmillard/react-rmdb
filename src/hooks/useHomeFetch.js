@@ -34,6 +34,7 @@ const initialState = {
 
         };
     
+        // Initial render
         useEffect(() => {
             fetchMovies(1);
     
