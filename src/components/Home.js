@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 // Config
@@ -7,6 +7,9 @@ import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config';
 // Components
 import HeroImage from './HeroImage';
 import Grid from './Grid';
+import Thumb from './Thumb';
+import Spinner from './Spinner';
+
 // Hook
 import { useHomeFetch } from '../hooks/useHomeFetch';
 
@@ -31,9 +34,19 @@ const Home = () => {
             }
             <Grid header='Popular Movies'>
                 {state.results.map(movie => (
-                    <div key={movie.id}>{movie.title}</div>
+                    <Thumb
+                        key={movie.id}
+                        clickable
+                        image={
+                            movie.poster_path
+                                ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
+                                : NoImage
+                        }
+                        movieId={movie.id}
+                    />
                 ))} 
             </Grid>
+            <Spinner />
         </>
     );
 
