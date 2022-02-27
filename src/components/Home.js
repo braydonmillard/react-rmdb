@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Testing if commit will show proper attribution
+//Testing if commit will still show proper attribution
 
 
 // Config
